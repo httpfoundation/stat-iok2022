@@ -1,0 +1,81 @@
+@import '../../theme.scss';
+
+#welcome {
+	padding: 60px 0;
+	@include mobile {
+		padding-top: 0;
+	}
+	.welcome-image {
+		position: absolute;
+		top: 0;
+		right: 0;
+		max-width: 46%;
+		max-height: 800px;
+		z-index: 7;	
+		@include mobile {
+			display: none;
+		}
+	}
+	.welcome-image-mobile {
+		display: none;
+		width: 100%;
+		margin-bottom: 20px;
+		@include mobile {
+			display: block;
+		}
+	}
+	.bubbles {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		max-width: 560px;
+		gap: 10px;
+	}
+	.overview {		
+		margin: 35px 0 25px 0;
+	}
+	h1 {
+		font-weight: 700;
+		font-size: 2.7rem;
+		line-height: 1.5;
+		.highlight {
+			color: $primary;
+		}
+		@include mobile {
+			font-size: 2rem;
+			text-align: center;
+		}
+	}
+	p {
+		color: $grey;
+		font-size: 0.9rem;
+		line-height: 1.8;
+		margin: 10px 0 30px 0;
+	}
+	.buttons {
+		>div {
+			margin-right: 20px;
+			display: inline-block;
+		}
+	}
+}
+
+.overview {
+	.overview-item {
+		display: inline-block;
+		font-size: 0.85rem;
+		font-weight: 600;
+		color: rgba(0, 0, 0, 0.7);
+		margin-right: 20px;
+		svg {
+			fill: rgba(0, 0, 0, 0.7);
+			height: 15px;
+			transform: translateY(-2.5px);
+			margin-right: 8px;
+		}
+		@include mobile {
+			display: block;
+			text-align: center;
+			margin: 10px 0;
+		}
+	}
+}

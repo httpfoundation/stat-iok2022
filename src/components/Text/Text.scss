@@ -1,0 +1,19 @@
+@import '../../theme.scss';
+
+.text {
+	color: $grey;
+	font-size: 0.9rem;
+	line-height: 1.9;
+	&.subtitle{
+		max-width: 900px;
+		text-align: center;
+		margin: 20px auto 80px auto;
+	}
+	&.description {
+		max-width: 900px;
+		margin: 20px auto 20px auto;
+	}
+	&.center {
+		text-align: center;
+	}
+}

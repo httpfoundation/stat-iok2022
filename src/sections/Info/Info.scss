@@ -1,0 +1,22 @@
+@import '../../theme.scss';
+
+#info-section {
+	.bubbles {
+		@include mobile {
+			display: none;
+		}
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr 1fr;
+		gap: 5px;
+		.bubble{
+			&:nth-child(odd) {
+				justify-self: end;
+			}
+			&:nth-child(2) {
+				align-self: end;
+			}
+		}
+	}
+	padding-bottom: 50px;
+}

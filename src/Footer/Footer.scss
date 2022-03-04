@@ -1,0 +1,62 @@
+@import '../theme.scss';
+
+footer {
+	background-color: $bg-primary;
+	padding: 40px 0;
+	.container {
+		display: flex;
+		@include mobile {
+			display: block;
+		}
+	}
+	.links {
+		flex: 1;
+		color: $grey;
+		font-weight: 500;
+		font-size: 0.8rem;
+
+		div.title {
+			font-weight: 700;
+			font-size: 1.2rem;
+			margin-bottom: 10px;
+		}
+
+		div.contact {
+			display: grid;
+			grid-template-columns: 16px auto;
+			gap: 5px;
+			@include mobile {
+				margin-bottom: 20px;
+			}
+		}
+
+		svg {
+			fill: $grey;
+			transform: translateY(-2px);
+			width: 16px;
+		}
+		
+		a {
+			@include mobile {
+			}
+			text-decoration: none;
+			color: $grey;
+			margin-right: 20px;
+			
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+	.copyright {
+		color: $grey;
+		font-size: 0.8rem;
+		@include mobile { 
+			text-align: center;
+		}
+	}
+	.http {
+		filter: invert(0.6);
+		height: 50px;
+	}
+}

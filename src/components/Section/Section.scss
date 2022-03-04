@@ -1,0 +1,15 @@
+@import '../../theme.scss';
+
+section.section {
+	&.section-placeholder {
+		min-height: 300px;
+		margin: auto;
+	}
+	&:nth-of-type(even) {
+		background-color: $bg-primary;
+	}
+	padding: 140px 0;
+	@include mobile {
+		padding: 70px 0;
+	}
+}
