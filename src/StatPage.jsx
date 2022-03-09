@@ -1,9 +1,22 @@
 import styled from "styled-components"
-import  {useStatQuery} from "./tools/datoCmsTools"
+import  {useStatQuery, useGetAll} from "./tools/datoCmsTools"
+import {useState} from 'react'
 
 const StatPage = () => {
 	const [onsite, online, all] = useStatQuery("onsite")
-	console.log("data", onsite)
+		
+	const stages = useGetAll("stage")
+	const registrations = useGetAll("registration")
+	const breakoutSessions = (stages.map(stage => {
+		const regs = registrations?.filter((reg) => reg.stage===`${stage.id}`)
+		return {name: stage.name, numberOfRegistration: regs.length}
+	}))
+	const onsiteBreakoutSessions = breakoutSessions.filter(bs => bs.numberOfRegistration>0)
+	
+/* 	console.log("data", registrations)
+	const stage1 = registrations?.filter((reg) => reg.stage==="107304832") 
+	console.log("stage1", stage1.length)
+ */
 	
 	return (
 		<Container>
@@ -11,6 +24,8 @@ const StatPage = () => {
 			<div>Összes regisztráció: {all?._allRegistrationsMeta.count}</div>
 			<div>Regisztráció online részvételre: {online?._allRegistrationsMeta.count}</div>
 			<div>Regisztráció helyszíni részvételre: {onsite?._allRegistrationsMeta.count}</div>
+			<div>&nbsp;</div>
+			{onsiteBreakoutSessions?.map((breakoutSession) => <div>{breakoutSession.name}: {breakoutSession.numberOfRegistration} </div> )}
 		</Container>
 	)
 }

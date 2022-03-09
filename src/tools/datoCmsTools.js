@@ -1,4 +1,7 @@
-import { useQuerySubscription } from "react-datocms";
+import { useQuerySubscription } from "react-datocms"
+import { SiteClient } from "datocms-client"
+import { useEffect, useState } from "react";
+
 
 const token = "3331fc3477e7df4b7cb85836c2a684"
 
@@ -129,16 +132,61 @@ export const useStatQuery = (statType) => {
     });
 
     query=`
-    query onsiteQuery {
-        _allRegistrationsMeta {
-        count
+    query registrationQuery {
+        allRegistrations {
+          stage {
+            slug
+          }
+          name
+          onsite
         }
-    }
-`
+      }
+    `
+
+    const {data: registration } = useQuerySubscription({
+        query,
+        token
+    });
+
+    query=`
+        query onsiteQuery {
+            _allRegistrationsMeta {
+            count
+            }
+        }
+    `
+
     const { error: allError, data: all } = useQuerySubscription({
         query,
         token
     });
 
-    return [onsite, online, all]
+    
+
+
+    return [onsite, online, all, registration?.allRegistrations]
 } 
+
+export const useGetAll = (type) => {
+
+    
+    const [registration, setRegistration] = useState([])
+
+    
+    useEffect(() => {
+        const client = new SiteClient("3331fc3477e7df4b7cb85836c2a684")
+        client.items.all(
+            {filter: {
+                type
+            }},
+            {
+                allPages: true
+            }
+        ).then(setRegistration)
+    },[])
+
+    console.log("allRecords")
+
+return registration
+
+}
