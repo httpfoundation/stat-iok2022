@@ -56,6 +56,12 @@ object-assign
 
 /*! https://mths.be/punycode v1.4.1 by @mathias */
 
+/** @license MUI v5.4.4
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 /** @license React v0.20.2
  * scheduler.production.min.js
  *
