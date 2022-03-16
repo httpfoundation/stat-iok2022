@@ -30,6 +30,8 @@ const StatPage = () => {
 		{ label: "onsite", key: "onsite" },
 		{ label: "stage", key: "stage" },
 		{ label: "vipCode", key: "vipCode" },
+		{ label: "registrationFeedback", key: "registrationFeedback" },
+		{ label: "translation", key: "translation" },
 		{ label: "createdAt", key: "createdAt" },
 	  ]
 	console.log("registrationsForExport", registrationsForExport)
