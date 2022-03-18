@@ -73,14 +73,14 @@ const ShowQuestions = (props: {selectedTalk: number}) => {
 	<Button variant="contained" color="primary" sx={{mb: 3}} onClick={() => document.getElementById("questions")?.requestFullscreen()}>
 		Teljes képernyő
 	</Button>
-	<Stack id="questions" sx={{backgroundColor: '#47CCD4', p: 2}} spacing={2}>
-		{ questions.sort((a: any,b: any) => (new Date(a.createdAt).getTime()) - (new Date(b.createdAt).getTime())).map((q: any) => <Card>
+	<Box id="questions" sx={{backgroundColor: '#47CCD4', p: 2, overflow: 'auto'}}>
+		{ questions.sort((a: any,b: any) => (new Date(a.createdAt).getTime()) - (new Date(b.createdAt).getTime())).map((q: any) => <Card sx={{mb: 2}}>
 			<CardContent>
 				<Typography variant="h6" sx={{fontSize: 15, color: 'rgba(0,0,0,0.5)'}}>Feladó: {q?.registration?.name || "Névtelen kérdező"} • Címzett: {q?.speaker?.name || "Nincs"} • {formatDate(q.createdAt)}</Typography>
 				<Typography variant="body1" sx={{fontSize: 19, mt: 1}}>{q?.content}</Typography>
 			</CardContent>
 		</Card>) }
-	</Stack>
+	</Box>
 	</>
 }
 
