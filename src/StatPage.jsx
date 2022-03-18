@@ -49,8 +49,7 @@ const StatPage = () => {
 	  };
 	
 	return (
-		<Container>
-			<h1>IOK 2022 jelentkezési statisztika</h1>
+		<>
 			<div>Összes regisztráció: {all?._allRegistrationsMeta.count}</div>
 			<div>Regisztráció online részvételre: {online?._allRegistrationsMeta.count}</div>
 			<div>Regisztráció helyszíni részvételre: {onsite?._allRegistrationsMeta.count}</div>
@@ -61,9 +60,7 @@ const StatPage = () => {
 			<div>Ebből ennyi a lemondás: {numberOfCancellation}</div>
 			<div>Tolmácsolást kér: {numberOfTranslation}</div>
 			<CSVLink {...csvReport} separator=";" style={{textDecoration:"none"}}><Button variant="contained">Exportálás CSV fájlba</Button></CSVLink>
-			
-
-		</Container>
+		</>
 	)
 }
 
@@ -82,16 +79,5 @@ const CSVLink = styled(CSVLink_)(
 	}
 )
 
-const Container = styled('div')`
-    display: grid;
-	grid-template-columns: auto;
-    justify-content:center;
-    align-items: center;
-    color: white;
-    background-color: #47CCD4;
-	padding: 50px;
-    margin-top: -90px;
-	a {text-decoration: "none"}	
-`
 
 export default StatPage

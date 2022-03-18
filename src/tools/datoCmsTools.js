@@ -167,7 +167,7 @@ export const useStatQuery = (statType) => {
     return [onsite, online, all, registration?.allRegistrations]
 } 
 
-export const useGetAll = (type) => {
+export const useGetAll = (type, key=0) => {
 
     
     const [registration, setRegistration] = useState([])
@@ -183,10 +183,8 @@ export const useGetAll = (type) => {
                 allPages: true
             }
         ).then(setRegistration)
-    },[])
+    },[key])
 
-    console.log("allRecords")
-
-return registration
+    return registration
 
 }
