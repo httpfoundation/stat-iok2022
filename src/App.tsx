@@ -15,6 +15,7 @@ import {Button, Container} from "@mui/material"
 import StatPage from './StatPage'
 import { Box, styled } from '@mui/system'
 import VisitorCount from './VisitorCount'
+import Questions from './Questions'
 
 /*
 const Container = styled('div')`
@@ -44,10 +45,12 @@ function App() {
 						<Box sx={{mb: 4}}>
 							<Link to="/"><Button variant="contained" color="primary">Jelentkezések</Button></Link>
 							<Link to="/jelenlet"><Button variant="contained" color="primary" sx={{ml: 2}}>Jelenlét</Button></Link>
+							<Link to="/kerdesek"><Button variant="contained" color="primary" sx={{ml: 2}}>Kérdések</Button></Link>
 						</Box>
 						<Routes>
 							<Route path="/" element={<StatPage />} />
 							<Route path="/jelenlet" element={<VisitorCount />} />
+							<Route path="/kerdesek" element={<Questions />} />
 						</Routes>
 					</Container>
 				</Router>
