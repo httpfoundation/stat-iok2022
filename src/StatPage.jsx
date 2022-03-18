@@ -5,12 +5,14 @@ import {Button as MuiButton} from "@mui/material"
 import { styled } from '@mui/system'
 
 const StatPage = () => {
-	const [onsite, online, all] = useStatQuery("onsite")
+	//const [onsite, online, all] = useStatQuery("onsite")
+	const onsite = null
+	const online = null
+	const all = null
 	
 		
 	const stages = useGetAll("stage")
 	const registrations = useGetAll("registration")
-	console.log("registrations", registrations)
 	
 	const registrationsForExport = registrations?.map(registration => {
 		const {id, name, email, phone, workplace, onsite, stage, vipCode, registrationFeedback, translation, createdAt} = registration
@@ -50,7 +52,7 @@ const StatPage = () => {
 	
 	return (
 		<>
-			<div>Összes regisztráció: {all?._allRegistrationsMeta.count}</div>
+			<div>Összes regisztráció: {all?._allRegistrationsMeta.count || registrations.length}</div>
 			<div>Regisztráció online részvételre: {online?._allRegistrationsMeta.count}</div>
 			<div>Regisztráció helyszíni részvételre: {onsite?._allRegistrationsMeta.count}</div>
 			<div>&nbsp;</div>
