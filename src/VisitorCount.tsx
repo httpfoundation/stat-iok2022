@@ -59,6 +59,16 @@ const VisitorCount = () => {
 		"/szekcio/digitalis-kultura-also-tagozat": "Digitalis kultúra alsó tagozat",
 	} as Record<string, string>
 
+	//console.log(attendances)
+	/*
+	const sql = attendances.reduce((acc, a) => {
+		const date = a.date
+		const path = a.path
+		return `${acc}\nINSERT INTO log (registration, date, path) VALUES (${a.id}, '${date.replace("T", " ").slice(0, 19)}', '${path}');`
+	}, "")
+
+	console.log(sql)
+	*/
 	return <>
 		{_attendances.length} jelentkezett már be - {attendances.length} log bejegyzés
 
